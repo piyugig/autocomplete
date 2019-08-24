@@ -15,12 +15,27 @@ class Search(Resource):
 class Add(Resource):
     def post(self):
         mydata = request.json
+        location = str(mydata['location'])
         ac = AutoCompleter(current_app.config["REDISSEARCH_INDEX"], current_app.config["REDISSEARCH_URI"])
-        #ac.add_suggestions(Suggestion())
-        data = {'status': 'OK'}
+        res = ac.get_suggestions(location, 1.0)
+        if len(res)>0:
+            data = {'msg': 'Location already present'}
+        else:
+            ac.add_suggestions(Suggestion(location, 1.0))
+            data = {'status': 'Location added'}
         return data, 200
 
 class Delete(Resource):
-    def delete(self, id):
+    def post(self):
+        mydata = request.json
+        location = str(mydata['location'])
+        ac = AutoCompleter(current_app.config["REDISSEARCH_INDEX"], current_app.config["REDISSEARCH_URI"])
+        res = ac.get_suggestions(location, 1.0)
+        if len(res)>0:
+            #ac.delete_document
+            data = {'msg': 'Location deleted'}
+        else:
+            data = {'status': 'No Location Present'}
+        return data, 200
         data = {'status': 'OK'}
         return data, 200

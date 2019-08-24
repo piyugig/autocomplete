@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+  autocomplete-python:
+    build: .
+    links:
+      - redis-search
+    ports:
+      - 5000:5000
+  redis-search:
+    image: redislabs/redisearch:latest
+    ports:
+      - 6379:6379

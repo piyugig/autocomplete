@@ -1,0 +1,3 @@
+redisearch>=0.7.1
+flask
+flask_restful

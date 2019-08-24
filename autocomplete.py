@@ -1,6 +1,6 @@
 from redisearch import TextField, NumericField, Query, AutoCompleter, Suggestion
 
-ac = AutoCompleter('ac', 'redis-search')
+ac = AutoCompleter('ac', 'localhost')
 
 ac.add_suggestions(
   Suggestion('google', 5.0),

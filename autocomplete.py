@@ -9,7 +9,8 @@ ac.add_suggestions(
 f= open("location-cnt.txt","r")
 for line in f:
     keywords = line.split(" ")
-    ac.add_suggestions(Suggestion(keywords[1], float(keywords[0])))
+    keywords[1] = keywords[1].replace("_", " ")
+    ac.add_suggestions(Suggestion(keywords[1].rstrip("\n"), float(keywords[0])))
 
 #res = ac.get_suggestions('goo')
 

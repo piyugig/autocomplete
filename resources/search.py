@@ -8,12 +8,7 @@ from redisearch import TextField, NumericField, Query, AutoCompleter, Suggestion
 class Search(Resource):
     def get(self, keyword):
         ac = AutoCompleter('ac', 'redis-search')
-        ac.add_suggestions(
-            Suggestion('google', 5.0),
-            Suggestion('goo', 1.0)
-        )
-        res = ac.get_suggestions('goo')
-        res = ac.get_suggestions('goo', fuzzy = True)
+        res = ac.get_suggestions(keyword, fuzzy = True)
         return res, 200
 
 class Add(Resource):

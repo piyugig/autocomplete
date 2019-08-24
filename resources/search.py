@@ -9,7 +9,7 @@ class Search(Resource):
     def get(self, keyword):
         ac = AutoCompleter(current_app.config["REDISSEARCH_INDEX"], current_app.config["REDISSEARCH_URI"])
         res = ac.get_suggestions(keyword, fuzzy = True)
-        return {"suggestion": res}, 200
+        return {"suggestion": [x.string for x in res]}, 200
 
 class Add(Resource):
     def post(self):

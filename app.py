@@ -9,5 +9,7 @@ api.add_resource(search.Search, '/search/<string:keyword>/')
 api.add_resource(search.Add, '/search/')
 api.add_resource(search.Delete, '/search/<string:id>/')
 
+api.add_resource(search.Render, '/autosuggest/')
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)

@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, render_template
 from flask_restful import Resource
 import time
 import json
@@ -21,3 +21,7 @@ class Delete(Resource):
     def delete(self, id):
         data = {'status': 'OK'}
         return data, 200
+
+class Render(Resource):
+    def search():
+        return render_template('index.html')

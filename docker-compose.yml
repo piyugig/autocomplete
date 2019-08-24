@@ -5,7 +5,7 @@ services:
     links:
       - redis-search
     ports:
-      - 5000:5000
+      - 3000:3000
   redis-search:
     image: redislabs/redisearch:latest
     ports:

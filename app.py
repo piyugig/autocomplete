@@ -18,8 +18,6 @@ api.add_resource(search.Search, '/search/<string:keyword>/')
 api.add_resource(search.Add, '/search/')
 api.add_resource(search.Delete, '/search/<string:id>/')
 
-api.add_resource(search.Render, '/autosuggest/')
-
 if __name__ == '__main__':
     app.run(
         host=app.config["HOST"], port=app.config["PORT"],

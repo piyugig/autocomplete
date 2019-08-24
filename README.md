@@ -17,6 +17,19 @@ https://redislabs.com/blog/search-benchmarking-redisearch-vs-elasticsearch/
 
 flask web framework
 
+#API
+GET: http://localhost:3000/query?term=piy
+
+POST: http://localhost:3000/add
+{
+	"location": "pi"
+}
+
+POST: http://localhost:3000/delete
+{
+	"location": "pi"
+}
+
 
 
 

@@ -5,3 +5,5 @@ jsonpickle==1.1
 waitress
 flasgger==0.9.2
 redisearch>=0.7.1
+flask-rq2==18.3
+waitress

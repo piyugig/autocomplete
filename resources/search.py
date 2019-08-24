@@ -6,7 +6,8 @@ from redisearch import TextField, NumericField, Query, AutoCompleter, Suggestion
 
 
 class Search(Resource):
-    def get(self, keyword):
+    def get(self):
+        keyword = request.args['term']
         ac = AutoCompleter(current_app.config["REDISSEARCH_INDEX"], current_app.config["REDISSEARCH_URI"])
         res = ac.get_suggestions(keyword, fuzzy = True)
         return {"suggestion": [x.string for x in res]}, 200
@@ -14,6 +15,8 @@ class Search(Resource):
 class Add(Resource):
     def post(self):
         mydata = request.json
+        ac = AutoCompleter(current_app.config["REDISSEARCH_INDEX"], current_app.config["REDISSEARCH_URI"])
+        #ac.add_suggestions(Suggestion())
         data = {'status': 'OK'}
         return data, 200
 

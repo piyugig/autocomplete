@@ -13,10 +13,9 @@ swagger = Swagger(app)
 
 # Initiate Queue
 rq.init_app(app)
-
-api.add_resource(search.Search, '/search/<string:keyword>/')
-api.add_resource(search.Add, '/search/')
-api.add_resource(search.Delete, '/search/<string:id>/')
+api.add_resource(search.Search, '/query')
+api.add_resource(search.Add, '/add')
+api.add_resource(search.Delete, '/delete')
 
 if __name__ == '__main__':
     app.run(

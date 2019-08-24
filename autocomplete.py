@@ -12,7 +12,3 @@ for line in f:
     keywords[1] = keywords[1].replace("_", " ")
     ac.add_suggestions(Suggestion(keywords[1].rstrip("\n"), float(keywords[0])))
 
-#res = ac.get_suggestions('goo')
-
-#res = ac.get_suggestions('goo', fuzzy = True)
-

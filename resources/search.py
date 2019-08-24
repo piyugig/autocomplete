@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, current_app
 from flask_restful import Resource
 import time
 import json
@@ -7,7 +7,7 @@ from redisearch import TextField, NumericField, Query, AutoCompleter, Suggestion
 
 class Search(Resource):
     def get(self, keyword):
-        ac = AutoCompleter('ac', 'redis-search')
+        ac = AutoCompleter(current_app.config["REDISSEARCH_INDEX"], current_app.config["REDISSEARCH_URI"])
         res = ac.get_suggestions(keyword, fuzzy = True)
         return {"suggestion": res}, 200
 

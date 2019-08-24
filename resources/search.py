@@ -9,7 +9,7 @@ class Search(Resource):
     def get(self, keyword):
         ac = AutoCompleter('ac', 'redis-search')
         res = ac.get_suggestions(keyword, fuzzy = True)
-        return res, 200
+        return {"suggestion": res}, 200
 
 class Add(Resource):
     def post(self):

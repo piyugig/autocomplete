@@ -7,7 +7,7 @@ ac.add_suggestions(
   Suggestion('goo', 1.0)
 )
 
-res = ac.get_suggestions('goo')
+#res = ac.get_suggestions('goo')
 
-res = ac.get_suggestions('goo', fuzzy = True)
-print(res)
+#res = ac.get_suggestions('goo', fuzzy = True)
+
